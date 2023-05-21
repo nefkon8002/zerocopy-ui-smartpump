@@ -1,4 +1,4 @@
-name: ci-zerocopy-ui-smartpump
+name: zerocopy-ui-smartpump-CI
 on:
   push:
     branches: ['develop', 'release-*','master']
