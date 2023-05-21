@@ -1,11 +1,11 @@
-name: Heroku Deployment
+name: Heroku-zerocopy-ui-smartpump-CD
 on:
   push:
     branches:
       - master
 jobs:
   deploy:
-    name: Heroku Deployment
+    name: zerocopy-ui-smartpump-CD
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -13,5 +13,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.6.8 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "zerocopy-api-user" #Must be unique in Heroku
+          heroku_app_name: "zerocopy-ui-smartpump" #Must be unique in Heroku
           heroku_email: "nefkon8002@gmail.com"
