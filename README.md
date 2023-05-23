@@ -22,6 +22,15 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
+## Estado del código
+
+[![Heroku-zerocopy-ui-smartpump-CD](https://github.com/nefkon8002/zerocopy-ui-smartpump/actions/workflows/deploy-heroku.yml/badge.svg)](https://github.com/nefkon8002/zerocopy-ui-smartpump/actions/workflows/deploy-heroku.yml)
+
+[![Angular-zerocopy-ui-smartpump-CI](https://github.com/nefkon8002/zerocopy-ui-smartpump/actions/workflows/angular-test-sonar.yml/badge.svg)](https://github.com/nefkon8002/zerocopy-ui-smartpump/actions/workflows/angular-test-sonar.yml)
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nefkon8002_zerocopy-ui-smartpump&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nefkon8002_zerocopy-ui-smartpump)
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=nefkon8002_zerocopy-ui-smartpump)
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
