@@ -9,9 +9,14 @@
             <div class="card card-profile">
                 <div class="card-avatar">
                     <div class='holder'>
+                      <ng-container *ngIf="load">
+
                         <a href="javascript:void(0)">
-                            <img class="img" src="./assets/images/eddie.png" />
+                            <!-- <img class="img" src="./assets/images/eddie.png" /> -->
+                            <img class="img" src={{profile.picture}} />
+
                         </a>
+                      </ng-container>
                     </div>
 
                 </div>
@@ -28,7 +33,10 @@
   <!-- <mat-label>Active</mat-label> -->
 
 <!-- </mat-form-field> -->
-<ng-container *ngIf="isObject(profile)">
+<!-- <ng-container *ngIf="isObject(profile)"> -->
+
+  <ng-container *ngIf="load">
+
   <mat-form-field class="full-width">
     <mat-label>Company</mat-label>
     <input [(ngModel)]="profile.company" id="company" matInput required type="text"/>
@@ -59,10 +67,9 @@
     <input [(ngModel)]="profile.eyeColor" matInput type="text"/>
   </mat-form-field>
   <mat-form-field class="full-width">
-    <mat-label>Balance{{balance}}</mat-label>
+    <mat-label>Balance</mat-label>
     <input [(ngModel)]="profile.balance" matInput required type="text"/>
     <!-- <input value="{{balance}}" matInput required type="text"/> -->
-
   </mat-form-field>
   <mat-form-field class="full-width">
     <mat-label>Family Name</mat-label>
@@ -77,7 +84,8 @@
     <input [(ngModel)]="profile.lastName" matInput type="text"/>
   </mat-form-field>
   <mat-slide-toggle [(ngModel)]="profile.active">Active</mat-slide-toggle>
-
+</ng-container>
+<!-- </ng-container> -->
 
 <mat-dialog-actions>
   <button cdkFocusInitial mat-dialog-close mat-raised-button>Close</button>

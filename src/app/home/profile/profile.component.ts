@@ -23,6 +23,8 @@ export class ProfileComponent implements OnInit {
   profile:UserDto;
   profilesrv: ProfileService;
   title = 'Profile';
+  load:boolean = false;
+  company:string="";
   //password: string;
 
   balance: string;
@@ -33,32 +35,41 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.profileUser();
-  //  this.profile= this.profileUser();
-  //  this.balance = this.profile.balance;
+    this.profileUser()
+    .subscribe( user => {
+      console.log("PROFILE USER -> " + JSON.stringify( user ))
+      this.profile= user;
+      this.balance = user.balance;
+      this.company=user.company;
+      this.load = true;
+    });
+
   }
 
+  // ngOnInit(): void {
+  //    this.pointsService.getMyPoints()
+  //     .subscribe( points => {
+  //       this.userPoints = points.value;
+  //       this.userPointsLastDate = points.lastDate || null;
+  //     });
+  // }
+
+
+  // getMyPoints() : Observable<Points>{
+  //   return this.httpService
+  //     .get(EndPoints.POINTS + PointsService.MYPOINTS);
+  // }
+
+
+
+
   isObject(value: any): boolean { return typeof value === 'object'; }
-  
-  profileUser(): void {
-    this.profilesrv.getProfilebyMDN(this.tokensService.getMobile()).subscribe(
-      (profile:UserDto) => {
-        if(profile){
-          this.profile = profile;
-          this.balance=profile.balance;}
 
-       }
-
-    );
-
-    }
+  profileUser(): Observable<UserDto> {
+    return this.profilesrv.getProfilebyMDN(this.tokensService.getMobile());
+  }
 
   updateUser(user:UserDto): void {
-      // this.profilesrv.updateProfilebyMDN(this.tokensService.getMobile()).subscribe(
-      //   () => {
-      //    console.log("Update user ok");
-      //   }
-      // );
       this.profilesrv.updateProfile(user).subscribe(
         () => {
          console.log("Update user ok");
